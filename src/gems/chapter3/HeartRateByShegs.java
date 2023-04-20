@@ -1,9 +1,10 @@
 package gems.chapter3;
 import java.util.Scanner;
 public class HeartRateByShegs {
-    private String firstName;
-    private String lastName;
-    private String dob;
+    private static String firstName;
+    private static String lastName;
+    private static String dob;
+    private static int year;
 
     public HeartRateByShegs(String firstName, String lastName, String dob){
         this.firstName = firstName;
@@ -12,10 +13,6 @@ public class HeartRateByShegs {
     }
 
     public static void main(String[] args) {
-
-    }
-
-    public void prompt(){
         Scanner userInput = new Scanner(System.in);
         System.out.println("Kindly Enter an first Name");
         firstName = userInput.nextLine();
@@ -23,37 +20,31 @@ public class HeartRateByShegs {
         lastName = userInput.nextLine();
         System.out.println("Kindly enter your Date of Birth in this format --> 10-17-1990");
         dob = userInput.nextLine();
-        HeartRateByShegs heart = new HeartRateByShegs(firstName, lastName, dob);
-        System.out.println(firstName + "age is" + getYear());
+        new HeartRateByShegs(firstName, lastName, dob);
+        getYear(dob);
+        System.out.println(firstName + "age is" + calcAge());
     }
-    public void setFirstName(String firstName){
-        this.firstName = firstName;
-    }
+
+
     public String getFirstName(){
         return firstName;
-    }
-    public void setLastName(String lastName){
-        this.lastName = lastName;
     }
     public String getLastName(){
         return lastName;
     }
-    /*public void setDob(String dob){
-        this.dob = dob;
-    }*/
-    public int getYear(){
-        this.dob = dob;
+
+    public static int getYear(String dob){
         int[] arrayCollectingDate = new int[dob.length()];
         for(int loopInAge=0; loopInAge<dob.length(); loopInAge++)
             arrayCollectingDate[loopInAge] = (int)dob.charAt(loopInAge) - '0';
-        int year = Integer.parseInt(arrayCollectingDate[-5] + "" + arrayCollectingDate[-4] + "" + arrayCollectingDate[-3] +
+        year = Integer.parseInt(arrayCollectingDate[-5] + "" + arrayCollectingDate[-4] + "" + arrayCollectingDate[-3] +
                 "" + arrayCollectingDate[-2]);
         return year;
     }
-    public int calcAge(int yearBorn){
-        yearBorn = getYear();
+
+    public static int calcAge(){
         int currentYear = 2023;
-        int currentAge = currentYear - yearBorn;
+        int currentAge = currentYear - year;
         return currentAge;
     }
 }
