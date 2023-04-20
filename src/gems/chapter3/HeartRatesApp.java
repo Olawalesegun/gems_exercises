@@ -15,8 +15,8 @@ public class HeartRatesApp {
        heartRate.setFirstName(firstName);
        heartRate.setLastName(lastName);
        heartRate.setDateOfBirth(dateOfBirth);
-        System.out.println(firstName+" "+lastName+" "+dateOfBirth+" your maximum heart rate is "+heartRate.getMaximumHeartRate()+" and your target heart rate is "+heartRate.getTargetHeartRate());
-        System.out.println(Age);
+        System.out.println("Your first name is: " + heartRate.getFirstName());
+        System.out.println();
     }
 
 
