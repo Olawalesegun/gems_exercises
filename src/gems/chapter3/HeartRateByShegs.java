@@ -20,9 +20,9 @@ public class HeartRateByShegs {
         lastName = userInput.nextLine();
         System.out.println("Kindly enter your Date of Birth in this format --> 10-17-1990");
         dob = userInput.nextLine();
-        new HeartRateByShegs(firstName, lastName, dob);
-        getYear(dob);
-        System.out.println(firstName + "age is" + calcAge());
+        HeartRateByShegs heart = new HeartRateByShegs(firstName, lastName, dob);
+        heart.getYear(dob);
+        System.out.println(firstName + "\'s" + " age is" + calcAge());
     }
 
 
@@ -37,8 +37,8 @@ public class HeartRateByShegs {
         int[] arrayCollectingDate = new int[dob.length()];
         for(int loopInAge=0; loopInAge<dob.length(); loopInAge++)
             arrayCollectingDate[loopInAge] = (int)dob.charAt(loopInAge) - '0';
-        year = Integer.parseInt(arrayCollectingDate[-5] + "" + arrayCollectingDate[-4] + "" + arrayCollectingDate[-3] +
-                "" + arrayCollectingDate[-2]);
+        year = Integer.parseInt(arrayCollectingDate[6] + "" + arrayCollectingDate[7] + "" + arrayCollectingDate[8] +
+                "" + arrayCollectingDate[9]);
         return year;
     }
 
